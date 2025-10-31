@@ -1,45 +1,38 @@
-/* Map spacing token name → actual spacing value */
+
 .container {
-  /* Use the named spacing token if available, otherwise fallback */
-  --spacing: var(--spacing, var(--spacing-medium));
-  --spacing: var(--spacing, var(--spacing-$(--spacing-token)));
-}
-
-/* Provide a proper mapping manually since CSS can't interpolate variable names */
-[style*="--spacing-token: xSmall"] { --spacing: var(--spacing-xSmall); }
-[style*="--spacing-token: small"]  { --spacing: var(--spacing-small); }
-[style*="--spacing-token: medium"] { --spacing: var(--spacing-medium); }
-[style*="--spacing-token: large"]  { --spacing: var(--spacing-large); }
-[style*="--spacing-token: xLarge"] { --spacing: var(--spacing-xLarge); }
-
-/* Density mapping */
-[style*="--density: low"] {
-  --font-size: 1.2rem;
-  --child-padding: calc(var(--spacing) * 1.25);
-}
-[style*="--density: default"] {
-  --font-size: 1rem;
-  --child-padding: var(--spacing);
-}
-[style*="--density: high"] {
-  --font-size: 0.9rem;
-  --child-padding: calc(var(--spacing) * 0.75);
-}
-
-/* Container base style */
-.container {
+  background-color: #7b3fbf;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  /* Enable container queries if needed */
   container-type: inline-size;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  padding: var(--spacing);
-  margin: 1rem 0;
-  background: #fff;
+  
 }
 
-/* Container query: smaller width => higher density */
-@container (max-width: 400px) {
-  .container {
-    --density: high;
-  }
+.container-label {
+  font-size: 0.8rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
 }
 
+.container {
+  --spacing: var(--spacing-medium);
+}
+.container[style*="--spacing-token: xSmall"] { --spacing: var(--spacing-xSmall); }
+.container[style*="--spacing-token: small"]  { --spacing: var(--spacing-small); }
+.container[style*="--spacing-token: medium"] { --spacing: var(--spacing-medium); }
+.container[style*="--spacing-token: large"]  { --spacing: var(--spacing-large); }
+.container[style*="--spacing-token: xLarge"] { --spacing: var(--spacing-xLarge); }
+
+/* Density multipliers and font size */
+.container[style*="--density: low"]    { 
+  --density-multiplier: var(--density-multiplier-low);
+  --font-size: var(--font-size-low);
+}
+.container[style*="--density: default"]{ 
+  --density-multiplier: var(--density-multiplier-default);
+  --font-size: var(--font-size-default);
+}
+.container[style*="--density: high"]   { 
+  --density-multiplier: var(--density-multiplier-high);
+  --font-size: var(--font-size-high);
+}

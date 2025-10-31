@@ -26,7 +26,7 @@ export function Container({
 
   return (
     <div className="container" style={style}>
-      <span style={{ fontSize: "0.8rem", color: "gray" }}>{label}</span>
+      <div className="container-label">{label}</div>
       {children}
     </div>
   );

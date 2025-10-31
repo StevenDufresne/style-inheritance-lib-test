@@ -1,9 +1,8 @@
-/* Child styling */
 .child {
-  background: rgba(0, 0, 0, 0.05);
+  padding: calc(var(--spacing) * var(--density-multiplier));
+  font-size: var(--font-size);
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  margin-top: var(--spacing);
-  padding: var(--child-padding, 1rem);
-  font-size: var(--font-size, 1rem);
+  margin-bottom: 0.5rem;
 }
-
