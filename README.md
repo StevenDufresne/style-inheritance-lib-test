@@ -1,4 +1,3 @@
-{readme}
 # React Density + Spacing Inheritance Demo
 
 A small React project demonstrating **component-level inheritance of density and spacing** using **CSS variables**, with **container queries** for responsive layouts.  
