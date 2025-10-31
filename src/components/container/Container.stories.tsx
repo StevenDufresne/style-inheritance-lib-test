@@ -47,9 +47,9 @@ export const Default: Story = {
     density: "default",
     spacing: "default",
     children: (<>
-      <Child label="Child 1" />
+      <Child label="Child inherits from parent container." />
       <Container label="Reset Container" resetDefaults>
-        <Child label="Child 2" />
+        <Child label="Child uses default props." />
       </Container>
     </>),
   },
