@@ -46,17 +46,6 @@ In this library, **density** and **spacing** are passed using **CSS variables** 
      - `spacing-token: medium`
    - This ensures that a component can be rendered standalone, outside any `Container`.
 
-3. **Breaking inheritance**  
-   - You can reset a component to defaults using the `resetDefaults` prop on `Container`.
-   - Example:
-```tsx
-<Container density="high">
-  <Container resetDefaults>
-    <Child label="Ignores parent's density → uses defaults" />
-  </Container>
-</Container>
-```
-
 ---
 
 ## Usage
