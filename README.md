@@ -123,21 +123,6 @@ Summary:
 
 ---
 
-### Spacing Tokens
-
-| Token    | Value  |
-|----------|--------|
-| xSmall   | 4px    |
-| small    | 8px    |
-| medium   | 16px   |
-| large    | 24px   |
-| xLarge   | 32px   |
-
-- Tokens are mapped to `--spacing` CSS variable.  
-- Children use `--child-padding` to adjust spacing based on density and token.
-
----
-
 ### Container Queries
 
 - Each container uses `container-type: inline-size` to enable container queries.  
@@ -152,25 +137,6 @@ Summary:
 ```
 
 - Children inherit these dynamically updated variables without extra code.
-
----
-
-## Styling Notes
-
-- **CSS variables are the core mechanism**: `--density`, `--spacing-token`, `--spacing`, `--child-padding`, `--font-size`.  
-- **Local defaults ensure stand-alone behavior**: even if a component is rendered outside a `Container`.  
-- **Density mappings** adjust font size and child padding.
-
----
-
-## How it Works
-
-1. Parent `Container` defines `--density` and `--spacing-token`.  
-2. Children (`Child` or nested `Container`) inherit the closest ancestor variables.  
-3. CSS maps spacing tokens to actual rem values.  
-4. Density can modify child padding or font size.  
-5. Container queries update variables based on container size.  
-6. Local defaults ensure fallback values if no ancestor defines them.  
 
 ---
 
@@ -206,4 +172,3 @@ npm run dev
 - Use the `resetDefaults` prop to intentionally break inheritance.  
 - Spacing tokens and density are designed to be **predictable, reusable, and composable**.  
 - This architecture ensures **components are self-contained**, **composable**, and **responsive**, without relying on a global provider.
-{readme}
