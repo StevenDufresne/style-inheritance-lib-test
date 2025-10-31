@@ -127,11 +127,11 @@ Summary:
 
 | Token    | Value  |
 |----------|--------|
-| xSmall   | 0.25rem |
-| small    | 0.5rem  |
-| medium   | 1rem    |
-| large    | 1.5rem  |
-| xLarge   | 2rem    |
+| xSmall   | 4px    |
+| small    | 8px    |
+| medium   | 16px   |
+| large    | 24px   |
+| xLarge   | 32px   |
 
 - Tokens are mapped to `--spacing` CSS variable.  
 - Children use `--child-padding` to adjust spacing based on density and token.
@@ -176,23 +176,28 @@ Summary:
 
 ## Getting Started
 
-1. Create a Vite React TypeScript project:
+1. Install dependencies:
 
 ```bash
-npm create vite@latest my-density-demo -- --template react-ts
-cd my-density-demo
 npm install
 ```
 
-2. Replace the `src/` folder with the provided project files (`App.tsx`, `Container.tsx`, `Child.tsx`, `styles.css`, `main.tsx`).  
+2. Run Storybook to view the component demos:
 
-3. Run the project:
+```bash
+npm run storybook
+```
+
+3. Storybook will open at `http://localhost:6006` where you can:
+   - View all Container and Child component variants
+   - Interact with controls to adjust density and spacing in real-time
+   - See nested container examples demonstrating inheritance
+
+4. Alternatively, run the main app:
 
 ```bash
 npm run dev
-```
-
-4. Resize containers in the browser to see density and spacing inheritance in action.  
+```  
 
 ---
 

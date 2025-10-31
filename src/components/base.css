@@ -2,11 +2,11 @@
 
 /* Spacing tokens */
 :root {
-    --spacing-xSmall: 0.25rem;
-    --spacing-small: 0.5rem;
-    --spacing-medium: 1rem;
-    --spacing-large: 1.5rem;
-    --spacing-xLarge: 2rem;
+    --spacing-xSmall: 4px;
+    --spacing-small: 8px;
+    --spacing-medium: 16px;
+    --spacing-large: 24px;
+    --spacing-xLarge: 32px;
   
     /* Density multipliers for padding */
     --density-multiplier-low: 1.5;
@@ -14,10 +14,12 @@
     --density-multiplier-high: 0.5;
   
     /* Density font sizes */
-    --font-size-low: 1.125rem;
-    --font-size-default: 1rem;
-    --font-size-high: 0.875rem;
+    --font-size-low: 22px;
+    --font-size-default: 16px;
+    --font-size-high: 10px;
 
+    /* Default values */
     --font-size: var(--font-size-default);
     --density-multiplier: var(--density-multiplier-default);
+    --spacing: var(--spacing-medium);
 }
