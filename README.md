@@ -32,6 +32,33 @@ Components:
 
 ---
 
+## How Inheritance Works in This Library
+
+In this library, **density** and **spacing** are passed using **CSS variables** (`--density` and `--spacing-token`). Here's how inheritance works:
+
+1. **Nearest-ancestor inheritance**  
+   - A `Child` component automatically inherits `density` and `spacing` from the closest parent `Container` that defines them.
+   - Nested `Containers` or `Children` can override these values locally.
+   - Siblings or other branches are unaffected — each subtree manages its own values.
+
+2. **Local defaults**  
+   - Every component has built-in defaults:
+     - `density: default`
+     - `spacing-token: medium`
+   - This ensures that a component can be rendered standalone, outside any `Container`.
+
+3. **Breaking inheritance**  
+   - You can reset a component to defaults using the `resetDefaults` prop on `Container`.
+   - Example:
+```tsx
+<Container density="high">
+  <Container resetDefaults>
+    <Child label="Ignores parent's density → uses defaults" />
+  </Container>
+</Container>
+
+---
+
 ## Usage
 
 ### Basic Inheritance
@@ -72,6 +99,39 @@ Use the `resetDefaults` prop or inline styles:
 ```
 
 - The inner container breaks inheritance and resets to default density and spacing.
+
+---
+
+### Creating a New Component
+
+To create a new component that works with this inheritance system:
+
+1. Use the CSS variables for styling
+   - Reference --density and --spacing in your component’s CSS.
+   - Example:
+     .my-component {
+       font-size: var(--font-size, 1rem);
+       padding: var(--child-padding, 1rem);
+     }
+
+2. Provide local defaults
+   - Ensure your component works standalone by falling back to defaults if variables are not defined.
+
+3. Optional local overrides
+   - You can allow your component to accept props like density or spacing and apply them via inline styles.
+     const style = {
+       '--density': props.density ?? 'default',
+       '--spacing-token': props.spacing ?? 'medium',
+     } as React.CSSProperties;
+
+4. Nestability
+   - Any component built this way will automatically inherit from its parent container when nested, unless resetDefaults is used.
+
+Summary:
+- All components automatically inherit density and spacing from the nearest parent container.
+- Local defaults guarantee standalone rendering.
+- Adding new components is simple: use the CSS variables for styling, provide defaults, and they just work with nested Containers.
+
 
 ---
 
