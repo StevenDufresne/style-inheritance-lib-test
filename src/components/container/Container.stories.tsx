@@ -50,9 +50,9 @@ export const Default: Story = {
   },
 };
 
-export const LowDensity: Story = {
+export const Density: Story = {
   args: {
-    label: "Low Density Container",
+    label: "Density",
     density: "low",
     spacing: "medium",
     children: (
@@ -60,65 +60,16 @@ export const LowDensity: Story = {
     ),
   },
 };
-
-export const HighDensity: Story = {
-  args: {
-    label: "High Density Container",
-    density: "high",
-    spacing: "medium",
-    children: (<Child label="Child 1" />),
-  },
-};
-
-export const xSmallSpacing: Story = {
+export const Spacing: Story = {
     args: {
-      label: "xSmall Spacing",
+      label: "Spacing",
       density: "default",
       spacing: "xSmall",
       children: ( <Child label="Child 1" />),
     },
   };
 
-export const SmallSpacing: Story = {
-  args: {
-    label: "Small Spacing",
-    density: "default",
-    spacing: "small",
-    children: ( <Child label="Child 1" />),
-  },
-};
-
-export const LargeSpacing: Story = {
-  args: {
-    label: "Large Spacing",
-    density: "default",
-    spacing: "large",
-    children: (<Child label="Child 1" />),
-  },
-};
-
-export const XLargeSpacing: Story = {
-  args: {
-    label: "Extra Large Spacing",
-    density: "default",
-    spacing: "xLarge",
-    children: (<Child label="Child 1" />),
-  },
-};
-
-export const LowDensityXsmallSpacing : Story = {
-    args: {
-      label: "Low Density xSmall Spacing",
-      density: "low",
-      spacing: "xSmall",
-      children: (
-          <Child label="Child 1" />
-      ),
-    },
-  };
-
-
-  export const NestedContainersSpacing  : Story = {
+  export const NestedContainers : Story = {
     args: {
       label: "Nested Containers Spacing",
       density: "default",
