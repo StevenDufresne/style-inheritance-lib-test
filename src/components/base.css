@@ -4,7 +4,7 @@
 :root {
     --spacing-xSmall: 4px;
     --spacing-small: 8px;
-    --spacing-medium: 16px;
+    --spacing-default: 16px;
     --spacing-large: 24px;
     --spacing-xLarge: 32px;
   
@@ -18,8 +18,38 @@
     --font-size-default: 16px;
     --font-size-high: 10px;
 
+    /* Background colors */
+    --background-color-light: #d4befa;
+    --background-color-default: #090111;
+    --background-color-dark: #170130;
+
+    /* Heading colors */
+    --heading-color-default: #fff;
+    --heading-color-dark: #000;
+    --heading-color-darker: #000;
+
+    /* Border radius tokens */
+    --border-radius-small: 2px;
+    --border-radius-default: 4px;
+    --border-radius-large: 8px;
+
+    /* Border colors */
+    --border-color-light: #d4befa;
+    --border-color-default: #ccc;
+    --border-color-dark: #666;
+
+    /* Border width tokens */
+    --border-width-thin: 1px;
+    --border-width-default: 1px;
+    --border-width-thick: 2px;
+
     /* Default values */
     --font-size: var(--font-size-default);
     --density-multiplier: var(--density-multiplier-default);
-    --spacing: var(--spacing-medium);
+    --spacing: var(--spacing-default);
+    --background-color: var(--background-color-default);
+    --heading-color: var(--heading-color-default);
+    --border-radius: var(--border-radius-default);
+    --border-color: var(--border-color-default);
+    --border-width: var(--border-width-default);
 }

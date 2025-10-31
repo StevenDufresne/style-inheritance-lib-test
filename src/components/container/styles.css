@@ -1,25 +1,30 @@
-
 .container {
-  background-color: #7b3fbf;
-  border-radius: 4px;
+
+  border-radius: var(--border-radius);
   margin-bottom: 0.5rem;
   /* Enable container queries if needed */
   container-type: inline-size;
-  
 }
 
-.container-label {
-  font-size: 0.8rem;
-  color: #fff;
-  margin-bottom: 0.5rem;
-}
+
 
 .container {
-  --spacing: var(--spacing-medium);
-}
+  padding: var(--spacing, 30px);
+  background-color: var(--background-color, red);
+  color: var(--heading-color, red);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
+
+  --background-color-token: var(--background-color-default);
+  --heading-color-token: var(--heading-color-default);
+  --border-radius-token: var(--border-radius-default);
+  --border-color-token: var(--border-color-default);
+  --border-width-token: var(--border-width-default);
+  --spacing: var(--spacing-default);
+} 
 .container[style*="--spacing-token: xSmall"] { --spacing: var(--spacing-xSmall); }
 .container[style*="--spacing-token: small"]  { --spacing: var(--spacing-small); }
-.container[style*="--spacing-token: medium"] { --spacing: var(--spacing-medium); }
+.container[style*="--spacing-token: default"] { --spacing: var(--spacing-default); }
 .container[style*="--spacing-token: large"]  { --spacing: var(--spacing-large); }
 .container[style*="--spacing-token: xLarge"] { --spacing: var(--spacing-xLarge); }
 
@@ -35,4 +40,74 @@
 .container[style*="--density: high"]   { 
   --density-multiplier: var(--density-multiplier-high);
   --font-size: var(--font-size-high);
+}
+
+.container[style*="--background-color-token: light"] {
+  --background-color: var(--background-color-light);
+}
+.container[style*="--background-color-token: default"] {
+  --background-color: var(--background-color-default);
+}
+.container[style*="--background-color-token: dark"] {
+  --background-color: var(--background-color-dark);
+}
+
+/* Heading color mapping */
+.container[style*="--heading-color-token: dark"] {
+  --heading-color: var(--heading-color-dark);
+}
+.container[style*="--heading-color-token: default"] {
+  --heading-color: var(--heading-color-default);
+}
+.container[style*="--heading-color-token: darker"] {
+  --heading-color: var(--heading-color-darker);
+}
+
+/* Border radius mapping */
+.container[style*="--border-radius-token: small"] {
+  --border-radius: var(--border-radius-small);
+}
+.container[style*="--border-radius-token: default"] {
+  --border-radius: var(--border-radius-default);
+}
+.container[style*="--border-radius-token: large"] {
+  --border-radius: var(--border-radius-large);
+}
+
+/* Border color mapping */
+.container[style*="--border-color-token: light"] {
+  --border-color: var(--border-color-light);
+}
+.container[style*="--border-color-token: default"] {
+  --border-color: var(--border-color-default);
+}
+.container[style*="--border-color-token: dark"] {
+  --border-color: var(--border-color-dark);
+}
+
+/* Border width mapping */
+.container[style*="--border-width-token: thin"] {
+  --border-width: var(--border-width-thin);
+}
+.container[style*="--border-width-token: default"] {
+  --border-width: var(--border-width-default);
+}
+.container[style*="--border-width-token: thick"] {
+  --border-width: var(--border-width-thick);
+}
+
+/* Container query: narrow containers → high density */
+/* @container (max-width: 400px) {
+  .container {
+    --density-multiplier: var(--density-multiplier-high);
+    --font-size: var(--font-size-high);
+  }
+} */
+
+
+/* For Demo: Container label */
+.container-label {
+  font-size: 0.8rem;
+  color: #fff;
+  margin-bottom: 1rem;
 }

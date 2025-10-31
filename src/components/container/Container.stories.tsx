@@ -45,8 +45,13 @@ export const Default: Story = {
   args: {
     label: "Default Container",
     density: "default",
-    spacing: "medium",
-    children: <Child label="Child 1" />,
+    spacing: "default",
+    children: (<>
+      <Child label="Child 1" />
+      <Container label="Reset Container" resetDefaults>
+        <Child label="Child 2" />
+      </Container>
+    </>),
   },
 };
 
@@ -54,7 +59,7 @@ export const Density: Story = {
   args: {
     label: "Density",
     density: "low",
-    spacing: "medium",
+    spacing: "default",
     children: <Child label="Child 1" />,
   },
 };
@@ -87,7 +92,7 @@ export const InheritedNestedContainers: Story = {
   args: {
     label: "Nested Containers Spacing",
     density: "high",
-    spacing: "medium",
+    spacing: "default",
     children: (
       <>
         <Child label="Density: high, Spacing: medium" />
@@ -103,11 +108,11 @@ export const InheritedNestedContainersResetDefaults: Story = {
   args: {
     label: "Nested Containers Spacing",
     density: "high",
-    spacing: "medium",
+    spacing: "default",
     children: (
       <>
         <Child label="Density: high, Spacing: medium" />
-        <Container label="Reset Defaults: xLarge Spacing" spacing="xLarge" resetDefaults>
+        <Container label="Reset Defaults: xLarge Spacing" spacing="xLarge" backgroundColor="dark" resetDefaults>
           <Child label="Density: default, Spacing: xLarge" />
         </Container>
       </>
