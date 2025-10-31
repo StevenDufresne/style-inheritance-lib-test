@@ -1,0 +1,45 @@
+/* Map spacing token name → actual spacing value */
+.container {
+  /* Use the named spacing token if available, otherwise fallback */
+  --spacing: var(--spacing, var(--spacing-medium));
+  --spacing: var(--spacing, var(--spacing-$(--spacing-token)));
+}
+
+/* Provide a proper mapping manually since CSS can't interpolate variable names */
+[style*="--spacing-token: xSmall"] { --spacing: var(--spacing-xSmall); }
+[style*="--spacing-token: small"]  { --spacing: var(--spacing-small); }
+[style*="--spacing-token: medium"] { --spacing: var(--spacing-medium); }
+[style*="--spacing-token: large"]  { --spacing: var(--spacing-large); }
+[style*="--spacing-token: xLarge"] { --spacing: var(--spacing-xLarge); }
+
+/* Density mapping */
+[style*="--density: low"] {
+  --font-size: 1.2rem;
+  --child-padding: calc(var(--spacing) * 1.25);
+}
+[style*="--density: default"] {
+  --font-size: 1rem;
+  --child-padding: var(--spacing);
+}
+[style*="--density: high"] {
+  --font-size: 0.9rem;
+  --child-padding: calc(var(--spacing) * 0.75);
+}
+
+/* Container base style */
+.container {
+  container-type: inline-size;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: var(--spacing);
+  margin: 1rem 0;
+  background: #fff;
+}
+
+/* Container query: smaller width => higher density */
+@container (max-width: 400px) {
+  .container {
+    --density: high;
+  }
+}
+
