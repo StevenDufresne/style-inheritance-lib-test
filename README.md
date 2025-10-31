@@ -56,6 +56,7 @@ In this library, **density** and **spacing** are passed using **CSS variables** 
     <Child label="Ignores parent's density → uses defaults" />
   </Container>
 </Container>
+```
 
 ---
 
@@ -131,7 +132,6 @@ Summary:
 - All components automatically inherit density and spacing from the nearest parent container.
 - Local defaults guarantee standalone rendering.
 - Adding new components is simple: use the CSS variables for styling, provide defaults, and they just work with nested Containers.
-
 
 ---
 
