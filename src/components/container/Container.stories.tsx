@@ -55,35 +55,62 @@ export const Density: Story = {
     label: "Density",
     density: "low",
     spacing: "medium",
-    children: (
-        <Child label="Child 1" />
-    ),
+    children: <Child label="Child 1" />,
   },
 };
 export const Spacing: Story = {
-    args: {
-      label: "Spacing",
-      density: "default",
-      spacing: "xSmall",
-      children: ( <Child label="Child 1" />),
-    },
-  };
+  args: {
+    label: "Spacing",
+    density: "default",
+    spacing: "xSmall",
+    children: <Child label="Child 1" />,
+  },
+};
 
-  export const NestedContainers : Story = {
-    args: {
-      label: "Nested Containers Spacing",
-      density: "default",
-      spacing: "medium",
-      children: (
-        <Container label="xLarge Spacing" spacing="xLarge">
-            <Child label="Child 2" />
-          <Container label="xSmall Spacing" spacing="xSmall">
-            <Child label="Child 1" />
-          </Container>
+export const NestedContainers: Story = {
+  args: {
+    label: "Nested Containers Spacing",
+    density: "default",
+    spacing: "xLarge",
+    children: (
+      <>
+        <Child label="Spacing: xLarge" />
+        <Container label="xSmall Spacing" spacing="xSmall">
+          <Child label="Spacing: xSmall" />
         </Container>
-      ),
-    },
-  };
+      </>
+    ),
+  },
+};
 
+export const InheritedNestedContainers: Story = {
+  args: {
+    label: "Nested Containers Spacing",
+    density: "high",
+    spacing: "medium",
+    children: (
+      <>
+        <Child label="Density: high, Spacing: medium" />
+        <Container label="xSmall Spacing" spacing="xSmall">
+          <Child label="Density: high, Spacing: xSmall" />
+        </Container>
+      </>
+    ),
+  },
+};
 
-
+export const InheritedNestedContainersResetDefaults: Story = {
+  args: {
+    label: "Nested Containers Spacing",
+    density: "high",
+    spacing: "medium",
+    children: (
+      <>
+        <Child label="Density: high, Spacing: medium" />
+        <Container label="Reset Defaults: xLarge Spacing" spacing="xLarge" resetDefaults>
+          <Child label="Density: default, Spacing: xLarge" />
+        </Container>
+      </>
+    ),
+  },
+};

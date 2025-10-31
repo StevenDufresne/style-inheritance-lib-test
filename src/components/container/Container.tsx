@@ -20,8 +20,8 @@ export function Container({
   children,
 }: ContainerProps) {
   const style = {
-    "--density": resetDefaults ? "default" : density,
-    "--spacing-token": resetDefaults ? "medium" : spacing,
+    "--density": resetDefaults ? (density || "default") : density,
+    "--spacing-token": resetDefaults ? (spacing || "medium") : spacing,
   } as React.CSSProperties;
 
   return (
