@@ -19,13 +19,18 @@ export function Container({
   resetDefaults,
   children,
 }: ContainerProps) {
-  const style = {
-    "--density": resetDefaults ? (density || "default") : density,
-    "--spacing-token": resetDefaults ? (spacing || "default") : spacing,
-  } as React.CSSProperties;
+  const dataAttributes: Record<string, string> = {};
+  
+  if (density !== undefined || resetDefaults) {
+    dataAttributes["data-density"] = resetDefaults ? (density || "default") : (density as string);
+  }
+  
+  if (spacing !== undefined || resetDefaults) {
+    dataAttributes["data-spacing"] = resetDefaults ? (spacing || "default") : (spacing as string);
+  }
 
   return (
-    <div className="container" style={style}>
+    <div className="container" {...dataAttributes}>
       <div className="container-label">{label}</div>
       {children}
     </div>

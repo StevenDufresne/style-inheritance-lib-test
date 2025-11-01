@@ -1,7 +1,14 @@
 .child {
   padding: calc(var(--spacing) * var(--density-multiplier));
   font-size: var(--font-size);
+}
 
+/* Force high density when the parent container is 400px or smaller. */
+@container container (max-width: 400px) {
+  .child {
+    --density-multiplier: var(--density-multiplier-high);
+    --font-size: var(--font-size-high);
+  }
 }
 
 /* Styles for demo purposes */

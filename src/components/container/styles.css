@@ -1,46 +1,45 @@
-
-
-
 .container {
   padding: var(--spacing, 30px);
   --spacing: var(--spacing-default);
 
   container-type: inline-size;
-} 
-.container[style*="--spacing-token: xSmall"] { --spacing: var(--spacing-xSmall); }
-.container[style*="--spacing-token: small"]  { --spacing: var(--spacing-small); }
-.container[style*="--spacing-token: default"] { --spacing: var(--spacing-default); }
-.container[style*="--spacing-token: large"]  { --spacing: var(--spacing-large); }
-.container[style*="--spacing-token: xLarge"] { --spacing: var(--spacing-xLarge); }
+  container-name: container;
+}
+/* Spacing tokens */
+.container[data-spacing="xSmall"] {
+  --spacing: var(--spacing-xSmall);
+}
+.container[data-spacing="small"] {
+  --spacing: var(--spacing-small);
+}
+.container[data-spacing="default"] {
+  --spacing: var(--spacing-default);
+}
+.container[data-spacing="large"] {
+  --spacing: var(--spacing-large);
+}
+.container[data-spacing="xLarge"] {
+  --spacing: var(--spacing-xLarge);
+}
 
 /* Density multipliers and font size */
-.container[style*="--density: low"]    { 
+.container[data-density="low"] {
   --density-multiplier: var(--density-multiplier-low);
   --font-size: var(--font-size-low);
 }
-.container[style*="--density: default"]{ 
+.container[data-density="default"] {
   --density-multiplier: var(--density-multiplier-default);
   --font-size: var(--font-size-default);
 }
-.container[style*="--density: high"]   { 
+.container[data-density="high"] {
   --density-multiplier: var(--density-multiplier-high);
   --font-size: var(--font-size-high);
 }
-
-/* Container query: narrow containers → high density */
-/* @container (max-width: 400px) {
-  .container {
-    --density-multiplier: var(--density-multiplier-high);
-    --font-size: var(--font-size-high);
-  }
-} */
-
 
 /* Styles for demo purposes */
 .container {
   background-color: #fff;
   margin-bottom: 1rem;
-  /* Enable container queries if needed */
   border: 1px solid rgb(38, 7, 81);
 }
 
