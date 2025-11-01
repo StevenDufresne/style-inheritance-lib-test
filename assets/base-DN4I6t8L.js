@@ -1,0 +1,1 @@
+import{j as i}from"./jsx-runtime-D_zvdyIk.js";function r({label:e}){return i.jsx("div",{className:"child",children:e})}r.__docgenInfo={description:"",methods:[],displayName:"Child",props:{label:{required:!0,tsType:{name:"string"},description:""}}};export{r as C};
