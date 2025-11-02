@@ -112,8 +112,31 @@ export const InheritedNestedContainersResetDefaults: Story = {
     children: (
       <>
         <Child label="Density: high, Spacing: medium" />
-        <Container label="Reset Defaults: xLarge Spacing" spacing="xLarge" backgroundColor="dark" resetDefaults>
+        <Container label="Reset Defaults: xLarge Spacing" spacing="xLarge" resetDefaults>
           <Child label="Density: default, Spacing: xLarge" />
+        </Container>
+      </>
+    ),
+  },
+};
+
+export const SuperNestedContainers: Story = {
+  args: {
+    label: "Nested Containers Spacing",
+    density: "high",
+    spacing: "default",
+    children: (
+      <>
+        <Child label="Density: high, Spacing: medium" />
+        <Container label="Reset Defaults: xLarge Spacing" spacing="xLarge">
+          <Child label="Density: high (inherited), Spacing: xLarge" />
+          <Container label="Small Spacing" density="low">
+            <Child label="Density: low, Spacing: xLarge (inherited)" />
+
+          </Container>
+        </Container>
+        <Container label="Small Spacing" spacing="small">
+          <Child label="Density: high (inherited), Spacing: small" />
         </Container>
       </>
     ),
